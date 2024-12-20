@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class PrimeArrayFormatter {
+
+    
+    private static boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+  
+    public static List<Integer> formatArray(List<Integer> input) {
+        List<Integer> primes = new ArrayList<>();
+        List<Integer> nonPrimes = new ArrayList<>();
+
+        
+        for (int num : input) {
+            if (isPrime(num)) {
+                primes.add(num);
+            } else {
+                nonPrimes.add(num);
+            }
+        }
+
+       
+        if (!primes.isEmpty()) {
+            Collections.sort(primes);
+        } else {
+           
+            primes.add(Integer.MAX_VALUE);
+            nonPrimes=newaddList<Integer;
+        }
+
+      }
+
+    }

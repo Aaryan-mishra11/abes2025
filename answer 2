@@ -1,0 +1,38 @@
+def is_prime(num):
+   
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def format_array(arr):
+    
+    primes = [num for num in arr if is_prime(num)]
+    non_primes = [num for num in arr if not is_prime(num)]
+
+    
+    primes.sort(reverse=True)
+
+  
+    non_primes.sort(reverse=True)
+
+   
+    result = []
+    if primes:
+        result.append(primes[0])  
+        result.extend(non_primes)
+        if len(primes) > 1:
+            result.append(primes[-1]) 
+    else:
+        result = non_primes
+    
+    return result
+
+
+array1 = [5, 1, 8, 11, 2]
+array2 = [1, 6, 4, 13, 9, 3]
+
+print(format_array(array1)) 
+print(format_array(array2))  
